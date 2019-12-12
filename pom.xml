@@ -374,6 +374,12 @@
           <exclude>**/*.java</exclude>
         </excludes>
       </resource>
+        <resource>
+          <directory>src/main/java</directory>
+          <includes>
+            <include>**/*.xml</include>
+          </includes>
+        </resource>
     </resources>
     <testResources>
       <testResource>
