@@ -244,7 +244,7 @@
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.18</version>
-      <scope>test</scope>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.assertj</groupId>
@@ -292,6 +292,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <argLine>${argLine} -Xmx2048m</argLine>
+          <skipTests>true</skipTests>
           <systemProperties>
             <property>
               <name>derby.stream.error.file</name>
@@ -380,6 +381,12 @@
             <include>**/*.xml</include>
           </includes>
         </resource>
+       <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
     </resources>
     <testResources>
       <testResource>
