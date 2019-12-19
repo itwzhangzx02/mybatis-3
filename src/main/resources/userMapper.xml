@@ -31,7 +31,7 @@
   </select>
 
   <select id="selectUserByArgs"  parameterType="String" resultType="learn.User">
-    select * from u_user where usercode = #{0} and username = #{1}
+    select * from u_user where usercode = #{arg0} and username = #{arg1}
   </select>
 
   <update id="updateName"  parameterType="String" >
