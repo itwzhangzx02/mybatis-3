@@ -31,7 +31,7 @@ public class GeneratorClassFileTest {
 
   public static void main(String[] args) {
     System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
-    String resource = "resources/mybatis-config.xml";
+    String resource = "mybatis-config.xml";
     SqlSessionFactory sqlSessionFactory;
     try (InputStream inputStream = Resources.getResourceAsStream(resource)) {
       //1、创建SqlSessionFactory

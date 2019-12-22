@@ -37,7 +37,7 @@ public class ConnectionTest {
 
   @BeforeAll
   public static void getSqlSession() throws IOException {
-    String resource = "resources/mybatis-config.xml";
+    String resource = "mybatis-config.xml";
     InputStream inputStream = Resources.getResourceAsStream(resource);
     //1、创建SqlSessionFactory
     SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);

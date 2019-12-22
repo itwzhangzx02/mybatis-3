@@ -36,7 +36,7 @@ public class BeforeClassTest {
 
   @BeforeAll
   static void initDatabase() throws Exception {
-    try (Reader reader = Resources.getResourceAsReader("resources/mybatis-config.xml")) {
+    try (Reader reader = Resources.getResourceAsReader("mybatis-config.xml")) {
       sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
     }
   }

@@ -27,6 +27,8 @@ public interface UserMapper {
 
   public User selectUserByArgs(String id,String name);
 
+  public User selectUser2(User user);
+
   public void updateName(@Param("name") String name , @Param("id")String id);
 
   void insert(User user);
