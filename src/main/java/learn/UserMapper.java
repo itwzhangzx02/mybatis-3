@@ -27,6 +27,8 @@ public interface UserMapper {
 
   public User selectUserByArgs(String id,String name);
 
+  public User selectUserByIdFromTable(@Param("id")String id,@Param("tableName")String tableName);
+
   public User selectUser2(User user);
 
   public void updateName(@Param("name") String name , @Param("id")String id);

@@ -26,11 +26,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
-public class ForeachTest {
+public class ParseSqlParamsTest {
 
   private static SqlSessionFactory sqlSessionFactory;
 
@@ -49,40 +46,10 @@ public class ForeachTest {
 
   }
 
-  @Test
-  public void testBatchInsert() throws Exception {
-    SqlSession sqlSession = sqlSessionFactory.openSession(true);
-    UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-    List <User> list = new ArrayList<User>();
-    for (int i = 0; i <10 ; i++) {
-      User user = new User();
-      user.setUserCode(""+i);
-      user.setUserName("heyu"+i);
-      user.setUserType("00");
-      user.setMobile("134568790"+i+""+i);
-      user.setCreateTime(new Date());
-      list.add(user);
-    }
-    userMapper.batchInsert(list);
-  }
-
- /* @Test
-  public void testInsert() throws Exception {
-    SqlSession sqlSession = sqlSessionFactory.openSession(true);
-    UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-    User user = new User();
-    user.setUserCode("10");
-    user.setUserName("heyu");
-    user.setUserType("00");
-    user.setMobile("13456879087");
-    user.setCreateTime(new Date());
-    userMapper.insert(user);
-  }*/
-
    private  User getUser(SqlSession sqlSession) {
     //3、获取mapper
     UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
     //4、执行数据库操作，并处理结果集
-    return userMapper.selectUser("10");
+    return userMapper.selectUserByIdFromTable("10","u_user");
   }
 }

@@ -53,5 +53,8 @@
 
   </insert>
 
+  <select id="selectUserByIdFromTable"  parameterType="String" resultType="learn.User">
+    select * from ${tableName} where usercode = #{id}
+  </select>
 
 </mapper>

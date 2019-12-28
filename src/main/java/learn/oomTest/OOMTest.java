@@ -43,8 +43,9 @@ public class OOMTest {
         Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         SqlSession sqlSession = sqlSessionFactory.openSession(true);
-        List<User> list = new ArrayList<User>();
-        for (int i = 0; i <100000000 ; i++) {
+       // List<User> list = new ArrayList<User>();
+       while(true) {
+          List<User> list = new ArrayList<User>();
           User user = getUser(sqlSession);
           User user2 = getUser2(sqlSession);
           System.out.println(user);
