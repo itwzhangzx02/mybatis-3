@@ -16,6 +16,8 @@
 package learn;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.session.RowBounds;
 
 import java.util.List;
 
@@ -36,4 +38,30 @@ public interface UserMapper {
   void insert(User user);
 
   void batchInsert(List<User> list);
+
+  public List<User> selectUserFromTable(@Param("tableName")String tableName, RowBounds rowBounds);
+  //使用注解式的sql注入
+  @Select("select * from u_user where usercode = #{简单类型只有一个参数的时候随便写}")
+  public  User selectOne(String id);
+
+  //使用注解式的sql注入
+  @Select("select * from u_user where usercode = #{param1.userCode}")
+  public  User selectOneByUser(@Param("user") User user);
+
+  //使用注解式的sql注入
+  @Select("select * from u_user where usercode = #{userCode}")
+  public  User selectOneByUser2(User user666);
+
+  //使用注解式的sql注入
+  @Select("select * from u_user limit ${index},1")
+  public  User selectOneByUser3(@Param("index") int index);
+
+  //使用注解式的sql注入
+  @Select("select * from u_user limit ${单个简单类型参数随便写没问题},1")
+  public  User selectOneByUser4(Integer index);
+
+  //使用注解式的sql注入
+  @Select("select * from u_user where usercode like '%${随便写都可以}%' ")
+  public  User selectOneByUser5(String id);
+
 }

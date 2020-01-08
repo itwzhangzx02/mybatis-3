@@ -38,6 +38,9 @@
     update u_user set username = #{name} where usercode= #{id}
   </update>
 
+  <select id="selectUser2"  parameterType="learn.User" resultType="learn.User">
+    select * from u_user where usercode = #{userCode}
+  </select>
   <insert id="insert" parameterType="learn.User">
     insert into u_user(usercode,username,createtime,usertype,mobile) values (#{userCode},#{userName}
     ,#{createTime},#{userType},#{mobile});
@@ -54,7 +57,11 @@
   </insert>
 
   <select id="selectUserByIdFromTable"  parameterType="String" resultType="learn.User">
-    select * from ${tableName} where usercode = #{id}
+    select * from ${tableName} where usercode= #{id}
+  </select>
+
+  <select id="selectUserFromTable"  parameterType="String" resultType="learn.User">
+    select * from ${tableName}
   </select>
 
 </mapper>

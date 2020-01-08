@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -92,12 +93,16 @@ public class StreamTest {
       .collect(Collectors.joining(","));
     System.out.println(resultStr);
 
-       Stream
+    Stream
       .of("hello", "world", "hello", "java")
       .collect(Collectors.toSet())
       .forEach(r-> System.out.println(r));
+  }
 
-
-
+  @Test
+  public void orElseTest() {
+    String id = "4" ;
+    String id2 = Optional.ofNullable(id).orElse("3");
+    System.out.println(id2);
   }
 }
